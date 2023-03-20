@@ -1,0 +1,1626 @@
+{
+  "mrid": "2fb13667-4841-4808-b9fe-55b6046fa6fb",
+  "name": "Kaweni",
+  "description": "Depart_HTB_1seulSA",
+  "scltype": "BAY",
+  "symbolName": "SquareSupply",
+  "property": [
+    {
+      "name": "symbolName",
+      "value": "SquareSupply",
+      "private": null
+    },
+    {
+      "name": "activated",
+      "value": "true",
+      "private": null
+    }
+  ],
+  "activated": true,
+  "isContained": [
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "8011840d-3e42-3f42-a7e3-1330246bb0ff",
+      "mrid": "2b8beb0b-9364-419c-a95d-f5326977bb77",
+      "name": "SS_1",
+      "isContained": [],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [
+        {
+          "mrid": "341391e4-c367-486d-91f1-ec727a5fa890",
+          "name": "cilo--7--4--B2007_CILO",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CILO",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cilo--7--4--B2007-de4a2cae-e52a-4930-817d-19ade993aa63",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "ae635fa9-377c-4f9b-bfe8-93eaa2a32b1a",
+          "name": "cswi--7--4--B2007_CSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cswi--7--4--B2007-89245786-7bfd-4298-9c75-65655373bfc3",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "4bcf6cbb-fc0b-4c0f-a234-ffd985c3089f",
+          "name": "xswi--7--4--B2007_XSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "XSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-xswi--7--4--B2007-8e02de48-814a-4180-a58a-57206aef196f",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        }
+      ],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60.32611,
+      "ycoordinateInLibSchema": 60.15555,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "8011840d-3e42-3f42-a7e3-1330246bb0ff",
+      "mrid": "7b6e06c0-4f14-41ff-98be-ab073fdb2088",
+      "name": "SS_2",
+      "isContained": [],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [
+        {
+          "mrid": "76eb701d-14f6-422a-b4d7-8fca9513b7a0",
+          "name": "cilo--7--4--B2007_CILO",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CILO",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cilo--7--4--B2007-de4a2cae-e52a-4930-817d-19ade993aa63",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "d9c1547c-b221-4590-a572-58d754b4cf4f",
+          "name": "cswi--7--4--B2007_CSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cswi--7--4--B2007-89245786-7bfd-4298-9c75-65655373bfc3",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "5c1107f6-b923-48ac-9390-e4a7fb3dcb74",
+          "name": "xswi--7--4--B2007_XSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "XSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-xswi--7--4--B2007-8e02de48-814a-4180-a58a-57206aef196f",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        }
+      ],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60,
+      "ycoordinateInLibSchema": 140,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "8011840d-3e42-3f42-a7e3-1330246bb0ff",
+      "mrid": "63efa14b-de79-40b6-bed1-1adc013d9b97",
+      "name": "SS_3",
+      "isContained": [],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [
+        {
+          "mrid": "eb84d688-fe23-4988-8789-72f02986adda",
+          "name": "cilo--7--4--B2007_CILO",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CILO",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cilo--7--4--B2007-de4a2cae-e52a-4930-817d-19ade993aa63",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "19f61ceb-84f8-4b02-bc1f-660879353f6e",
+          "name": "cswi--7--4--B2007_CSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cswi--7--4--B2007-89245786-7bfd-4298-9c75-65655373bfc3",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "f4a21d90-e41d-458f-ac80-4dfa6e388782",
+          "name": "xswi--7--4--B2007_XSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "XSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-xswi--7--4--B2007-8e02de48-814a-4180-a58a-57206aef196f",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        }
+      ],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60,
+      "ycoordinateInLibSchema": 220,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "a4d7a7c5-4eb8-3a75-884d-180f123ac96d",
+      "mrid": "16bff25b-5ff2-4b37-a0bf-db60e9e0bcd0",
+      "name": "DJ2_1",
+      "isContained": [],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [
+        {
+          "mrid": "5f293575-0bc7-4fe9-bc53-465c3625efdc",
+          "name": "cilo--7--4--B2007_CILO",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CILO",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cilo--7--4--B2007-de4a2cae-e52a-4930-817d-19ade993aa63",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "4e12aac1-fe91-49a6-809c-b2066495e37b",
+          "name": "cswi--7--4--B2007_CSWI",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "CSWI",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-cswi--7--4--B2007-89245786-7bfd-4298-9c75-65655373bfc3",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        },
+        {
+          "mrid": "38be7946-45c5-4dc0-9661-7f999f0e6861",
+          "name": "xcbr--7--4--B2007_XCBR",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "XCBR",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-xcbr--7--4--B2007-c7dd5401-0c7e-44df-aa51-a844ecdb188a",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        }
+      ],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60,
+      "ycoordinateInLibSchema": 300,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "bab9fb52-4025-358d-8be7-b39465a05599",
+      "mrid": "39aa3147-d487-4c2f-910d-4e3f8eda0a0f",
+      "name": "TT_barre_ph41_1",
+      "isContained": [
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "5c0bd669-857c-368f-9660-b69bb7f098ec",
+          "mrid": "7070e327-3ae0-4842-8039-a25b3de93720",
+          "name": "L2_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "0e55fcd2-0f62-4330-97d3-b9925dacf2ec",
+              "name": "tvtr--7--4--B2007_TVTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TVTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tvtr--7--4--B2007-eba2f849-bd6a-4046-b45c-2ab1a8bf6a9d",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "35362da7-b3dc-388c-aee9-3e4743256ed8",
+          "mrid": "2f589730-a8b9-47b3-aca7-968b6b6d5169",
+          "name": "L43_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "6cdbd624-f2f4-42ae-9302-7ed12ec77c78",
+              "name": "tvtr--7--4--B2007_TVTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TVTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tvtr--7--4--B2007-eba2f849-bd6a-4046-b45c-2ab1a8bf6a9d",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "39daf862-718a-39f2-acd4-81c10380de10",
+          "mrid": "26c31800-cd44-408d-999d-1f06f62a1375",
+          "name": "L32_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "240cabdb-91d2-4e7b-9748-c0949ee1615b",
+              "name": "tvtr--7--4--B2007_TVTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TVTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tvtr--7--4--B2007-eba2f849-bd6a-4046-b45c-2ab1a8bf6a9d",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "80674367-4cdf-395e-b640-a1de5641dba0",
+          "mrid": "cb761f41-2ff2-4c90-b4fb-a11f74d7a51f",
+          "name": "L11_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "e08d1436-ffa4-4e78-b342-20a727fdccb7",
+              "name": "tvtr--7--4--B2007_TVTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TVTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tvtr--7--4--B2007-eba2f849-bd6a-4046-b45c-2ab1a8bf6a9d",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        }
+      ],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60.8963,
+      "ycoordinateInLibSchema": 380,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "825a0e24-9657-38c1-a149-9f22739c567b",
+      "mrid": "6a95bad8-8ab1-4d68-a1c4-980ce25edc8d",
+      "name": "LS4_1",
+      "isContained": [],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [
+        {
+          "mrid": "27cf78da-5ca8-4673-9f21-0a158dae4458",
+          "name": "zcab--7--4--B2007_ZCAB",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "ZCAB",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-zcab--7--4--B2007-5e589b75-4600-4083-9b95-06be2fcf819b",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        }
+      ],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60,
+      "ycoordinateInLibSchema": 460,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "0963c7d3-c73b-3337-8b61-510db4696c98",
+      "mrid": "94dbee1a-ea9b-42a9-bd1b-bbab405eca2c",
+      "name": "Parafoudre3_1",
+      "isContained": [],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [
+        {
+          "mrid": "ff5ca606-2b1f-44a3-91aa-88f2601d7aa3",
+          "name": "zsar--7--4--B2007_ZSAR",
+          "scltype": "L_NODE",
+          "cardinality": 1,
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "iedName",
+              "value": "None",
+              "private": null
+            },
+            {
+              "name": "lnClass",
+              "value": "ZSAR",
+              "private": null
+            },
+            {
+              "name": "lnInst",
+              "value": "1",
+              "private": null
+            },
+            {
+              "name": "lnType",
+              "value": "ecs-LNodeType-zsar--7--4--B2007-065829f5-3387-4f25-97ca-b9575716dbc3",
+              "private": null
+            }
+          ],
+          "isContained": [],
+          "allocatedToLNmRID": null
+        }
+      ],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60,
+      "ycoordinateInLibSchema": 540,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "dfa08018-d06a-354a-90a5-65b2a7dbb949",
+      "mrid": "2c52c319-2a78-4711-811a-8a09bb054065",
+      "name": "TC5_1",
+      "isContained": [
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "b23dddc6-5be9-3d67-820d-8799cabf984e",
+          "mrid": "9bc45222-8a4f-451b-a57b-77eafbb51c9a",
+          "name": "L210_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "677df8ba-47b7-4b62-83ec-5fefa16d9ac6",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "a6a9beaa-e1a4-3f56-a744-b0af5a1e70b8",
+          "mrid": "1bfb0d2d-2d1f-4457-8dde-d467946f45ec",
+          "name": "L19_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "2a8a9d91-3122-4170-9bf3-a18ee6431bbc",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "150cdf51-a1b3-36e3-8291-e26a8d25cb12",
+          "mrid": "6c968564-fe75-4be4-a3c2-dd666a13e51c",
+          "name": "L412_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "8721c570-786d-4cb7-88ab-832c5a16b0ba",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "c270c8cf-ca42-39ca-9d0b-9d1098fb03be",
+          "mrid": "573d3956-2852-47c7-946f-4717d7dab2a1",
+          "name": "L311_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "d39f6b40-7201-4c83-b1be-0cd40a6d4228",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        }
+      ],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60.94818,
+      "ycoordinateInLibSchema": 620.0519,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": "dfa08018-d06a-354a-90a5-65b2a7dbb949",
+      "mrid": "4836336e-fab4-493e-bf20-af17979a8d4c",
+      "name": "TC5_2",
+      "isContained": [
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "b23dddc6-5be9-3d67-820d-8799cabf984e",
+          "mrid": "fb865afa-42bd-48b5-9250-d064913cb626",
+          "name": "L210_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "ab4739a1-82c5-40ff-ad96-b62f41647a2e",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "a6a9beaa-e1a4-3f56-a744-b0af5a1e70b8",
+          "mrid": "e007ca39-4bed-4554-a8ba-ff8388689ba6",
+          "name": "L19_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "20d572cd-1e99-4413-a074-e8e31e72b46c",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "150cdf51-a1b3-36e3-8291-e26a8d25cb12",
+          "mrid": "3be96df8-33fb-4b27-b3bc-5690e3360218",
+          "name": "L412_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "153a0a07-f358-4ef0-99a7-917c4942e082",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        },
+        {
+          "description": null,
+          "domainKind": null,
+          "implementedFromIEDCapabilities": null,
+          "implementsTypicalObject": "c270c8cf-ca42-39ca-9d0b-9d1098fb03be",
+          "mrid": "9ec172a7-b9c2-49f9-9e34-8ff20160286f",
+          "name": "L311_1",
+          "isContained": [],
+          "property": [
+            {
+              "name": "activated",
+              "value": "true",
+              "private": null
+            },
+            {
+              "name": "virtual",
+              "value": "null",
+              "private": null
+            }
+          ],
+          "protAutoObject": [
+            {
+              "mrid": "8d07c4d5-beee-44e2-b29b-33106296cb84",
+              "name": "tctr--7--4--B2007_TCTR",
+              "scltype": "L_NODE",
+              "cardinality": 1,
+              "property": [
+                {
+                  "name": "activated",
+                  "value": "true",
+                  "private": null
+                },
+                {
+                  "name": "iedName",
+                  "value": "None",
+                  "private": null
+                },
+                {
+                  "name": "lnClass",
+                  "value": "TCTR",
+                  "private": null
+                },
+                {
+                  "name": "lnInst",
+                  "value": "1",
+                  "private": null
+                },
+                {
+                  "name": "lnType",
+                  "value": "ecs-LNodeType-tctr--7--4--B2007-5489ba5d-82eb-427b-94b7-b505444d40b3",
+                  "private": null
+                }
+              ],
+              "isContained": [],
+              "allocatedToLNmRID": null
+            }
+          ],
+          "elecConnectedTo": [],
+          "elecConnectedToBusBarToBusBar": [],
+          "bayOrderNumbInSingleLineDiagram": null,
+          "cardinality": 1,
+          "orientationType": null,
+          "symbolName": null,
+          "xcoordinateInLibSchema": null,
+          "ycoordinateInLibSchema": null,
+          "scltype": "SUB_EQUIPMENT",
+          "mriddomain": null
+        }
+      ],
+      "property": [
+        {
+          "name": "activated",
+          "value": "true",
+          "private": null
+        }
+      ],
+      "protAutoObject": [],
+      "elecConnectedTo": [
+        "e95a9e97-2198-49cb-a30e-942a82054a49"
+      ],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": 1,
+      "orientationType": null,
+      "symbolName": null,
+      "xcoordinateInLibSchema": 60,
+      "ycoordinateInLibSchema": 700,
+      "scltype": "CONDUCTING_EQUIPMENT",
+      "mriddomain": null
+    },
+    {
+      "description": null,
+      "domainKind": null,
+      "implementedFromIEDCapabilities": null,
+      "implementsTypicalObject": null,
+      "mrid": "e95a9e97-2198-49cb-a30e-942a82054a49",
+      "name": "node_1",
+      "isContained": [],
+      "property": [
+        {
+          "name": "pathName",
+          "value": "TEMPLATE/TEMPLATE/Kaweni/node_1",
+          "private": null
+        }
+      ],
+      "protAutoObject": [],
+      "elecConnectedTo": [],
+      "elecConnectedToBusBarToBusBar": [],
+      "bayOrderNumbInSingleLineDiagram": null,
+      "cardinality": null,
+      "orientationType": "BOTH",
+      "symbolName": null,
+      "xcoordinateInLibSchema": 660.3937,
+      "ycoordinateInLibSchema": 300.02856,
+      "scltype": "CONNECTIVITY_NODE",
+      "mriddomain": null
+    }
+  ],
+  "protAutoObject": []
+}
