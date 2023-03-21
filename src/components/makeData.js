@@ -2,8 +2,6 @@
 
 export default function makeData() {
 
-
-
   return Array(1000).fill({}).map((e,i) => ({
     col0: '',
     col1: 'Hello ' + i.toString(),
@@ -12,7 +10,5 @@ export default function makeData() {
 
 
   }));
-
-
 
 }

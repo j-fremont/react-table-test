@@ -1,26 +1,29 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Col, Table, FormGroup, ButtonGroup, Button, Input, Pagination, PaginationItem, PaginationLink, UncontrolledTooltip } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons'
 import { useTable, usePagination, useGlobalFilter, useAsyncDebounce, useExpanded} from 'react-table';
 
-import makeData from './makeData_2'
-import makeTreeData from './makeTreeData'
 
-export const CsTreeTable = ({ columns = [], offset = false }) => {
+export const CsTreeTable = ({ data = [], columns = [], offset = false, setData }) => {
 
-	const [data, setData] = useState(() => makeTreeData(5,5,5));
 
 	const [replaceText, setReplaceText] = useState();
 	const [offsetValue, setOffsetValue] = useState();
+
+	//const skipPageResetRef = useRef()
 
 
 
 
 	const onUpdate = (rowIndex, columnId, value) => {
 
-		//console.log(rowIndex + ' - ' + columnId + ' = ' + value);
+		console.log(rowIndex + ' - ' + columnId + ' = ' + value);
+
+		// When data gets updated with this function, set a flag
+   // to disable all of the auto resetting
+   //skipPageResetRef.current = true;
 
 		setData(old =>
 			old.map((row, index) => {
@@ -35,6 +38,12 @@ export const CsTreeTable = ({ columns = [], offset = false }) => {
 		);
 
 	}
+
+	/*useEffect(() => {
+   // After the table has updated, always remove the flag
+   skipPageResetRef.current = false;
+ })*/
+
 
 	const onReplace = () => {
 
@@ -86,6 +95,7 @@ export const CsTreeTable = ({ columns = [], offset = false }) => {
 			columns,
 			data,
 
+			//autoResetExpanded: !skipPageResetRef.current,
 
 			initialState: {
 				pageIndex: 0,
@@ -125,7 +135,9 @@ export const CsTreeTable = ({ columns = [], offset = false }) => {
 
 		//console.log(data);
 
-		console.log(makeData())
+		//console.log(makeData())
+
+		console.log(data);
 
 
 	}

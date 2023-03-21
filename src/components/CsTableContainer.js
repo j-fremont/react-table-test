@@ -1,13 +1,16 @@
 
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { CsTreeTable } from './CsTreeTable'
 import { CsTreeCell, CsTreeHeader, CsEditCell, CsIconCell, CsSelectCell } from './CsTreeTableCell';
 
+import makeTreeData from './makeTreeData'
+
 const CsTableContainer = () => {
 
-	const options = [{key:1, value:'Option un'},{key:2, value:'Option deux'},{key:3, value:'Option trois'}];
+	const [data, setData] = useState(() => makeTreeData(5,5,5));
 
+	const options = [{key:1, value:'Option un'},{key:2, value:'Option deux'},{key:3, value:'Option trois'}];
 
 	const columns = useMemo(() => [
 		{
@@ -45,15 +48,12 @@ const CsTableContainer = () => {
 	], []);
 
 
-
-
-
 	return (
 		<Container fluid={true}>
 			<Row>
 				<Col md={6}>
 
-					<CsTreeTable columns={columns} offset={true} />
+					<CsTreeTable data={data} columns={columns} offset={true} setData={setData} />
 
 				</Col>
 				<Col md={6} />

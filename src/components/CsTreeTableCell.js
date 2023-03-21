@@ -12,8 +12,6 @@ export const CsTreeHeader = ({ getToggleAllRowsExpandedProps, isAllRowsExpanded 
 
 export const CsTreeCell = ({ value, row }) => {
 
-  console.log(row.depth)
-
   const style = {
     paddingLeft: (row.depth) + 'rem'
   }
@@ -65,7 +63,7 @@ export const CsEditCell = ({
     setValue(initialValue)
   }, [initialValue])
 
-  return <Input value={value} onChange={onChange} onBlur={onBlur} />
+  return <Input size={'sm'} value={value} onChange={onChange} onBlur={onBlur} />
 }
 
 export const CsSelectCell = ({
