@@ -1,130 +1,96 @@
 
 import React, { useState, useEffect } from 'react';
-import { Input, Button } from 'reactstrap';
+import { Input, Button, Tooltip } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faSync, faReply, faEraser, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 
-export const CsTreeHeader = ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }) => (
-  <span {...getToggleAllRowsExpandedProps()}>
-    {isAllRowsExpanded ? '-' : '+'}
-  </span>
-)
 
-export const CsTreeCell = ({ value, row }) => {
 
-  const style = {
-    paddingLeft: (row.depth) + 'rem'
-  }
 
-  return (row.canExpand ?
-    <span
-      {...row.getToggleRowExpandedProps({
-        style,
-      })}>
-      {row.isExpanded ?
-        '-'
-      :
-        '+'} {value}
-    </span>
-    :
-    <span style={style}>
-      {value}
 
-    </span>
-  )
+export const renderTextCell = (row, field, align = 'ltr') => {
+	return (
 
+		<span
+			id={row.data.id + '_' + field}
+			className={'ecs_tree-table_cell_' + align + ' ecs_tree-table_cell_found'}
+			onMouseOver={(e) => {
+				const tooltip = document.getElementById("tooltip");
+				const x = e.clientX, y = e.clientY;
+				tooltip.style.top = (y + 10) + 'px';
+				tooltip.style.left = (x) + 'px';
+				tooltip.style.display = 'block';
+				tooltip.innerHTML = row.data[field];
+			}}
+			onMouseOut={(e) => {
+				const tooltip = document.getElementById("tooltip");
+				tooltip.style.display = 'none';
+			}}>
+
+			{row.data[field]}
+
+
+
+		</span>
+
+
+	)
 }
 
+/*
 
-export const CsEditCell = ({
-  value: initialValue,
-  row: { index },
-  column: { id },
-  onUpdate, // This is a custom function that we supplied to our table instance
+			<Tooltip
+				isOpen={true}
+				target={row.data.id + '_' + field}>
+				Hello world!
+			</Tooltip>
+
+*/
 
 
-
-}) => {
-
-  // We need to keep and update the state of the cell normally
-  const [value, setValue] = useState(initialValue);
-
-  const onChange = e => {
-    setValue(e.target.value)
-  }
-
-  // We'll only update the external data when the input is blurred
-  const onBlur = () => {
-    onUpdate(index, id, value)
-  }
-
-  // If the initialValue is changed external, sync it up with our state
-  useEffect(() => {
-    setValue(initialValue)
-  }, [initialValue])
-
-  return <Input size={'sm'} value={value} onChange={onChange} onBlur={onBlur} />
+export const renderInputCell = (row, field, regex = undefined) => {
+	return (
+		<Input
+			type={'text'}
+			value={row.data[field]}
+			onChange={(e) => {
+				let value = e.target.value;
+				if (regex && !regex.test(value)) { value = row.data[field]; }
+				row.updateData({
+					...row.data,
+					[field]: value
+				});
+			}} />
+	);
 }
 
-export const CsSelectCell = ({
-  value: initialValue,
-  row: { index },
-  column: { id },
-  onUpdate, // This is a custom function that we supplied to our table instance
-  options,
-
-
-}) => {
-
-  // We need to keep and update the state of the cell normally
-  const [value, setValue] = useState(initialValue);
-
-  const onChange = e => {
-    setValue(e.target.value)
-  }
-
-  // We'll only update the external data when the input is blurred
-  const onBlur = () => {
-    onUpdate(index, id, value)
-  }
-
-  // If the initialValue is changed external, sync it up with our state
-  useEffect(() => {
-    setValue(initialValue)
-  }, [initialValue])
-
-  return (
-    <Input type='select' value={value} onChange={onChange} onBlur={onBlur}>
-      {options.map(option => (
-        <option key={option.key}>{option.value}</option>
-
-      ))}
-    </Input>
-  )
-
+export const renderSelectCell = (row, field, options = []) => {
+	return (
+		<Input
+			type={'select'}
+			value={row.data[field]}
+			onChange={(e) => {
+				let value = e.target.value;
+				row.updateData({
+					...row.data,
+					[field]: value
+				});
+			}}>
+				<option default key={'none'} value={'none'}>None</option>
+				{options.map(o => (
+					<option key={o.name} value={o.name}>{o.name}</option>
+				))}
+		</Input>
+	);
 }
 
-export const CsIconCell = ({
-  row: { index },
-  column: { id },
-  onUpdate, // This is a custom function that we supplied to our table instance
-
-
-
-}) => {
-
-
-  const onClick = e => {
-
-    onUpdate(index, id)
-
-
-  }
-
-
-  return (
-    <Button color="white" onClick={onClick}>
-      <FontAwesomeIcon icon={faEraser} />
-    </Button>
-  )
+export const renderIconCell = (row, icon, onClick) => {
+	return (
+		<Button
+			color={'transparent'}
+			onClick={(e) => {
+				onClick(row);
+			}}>
+			<FontAwesomeIcon icon={icon} />
+		</Button>
+	);
 }

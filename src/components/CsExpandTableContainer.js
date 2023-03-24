@@ -1,12 +1,12 @@
 
 import React, { useState, useMemo } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { CsTreeTable } from './CsTreeTable'
-import { CsTreeCell, CsTreeHeader, CsEditCell, CsIconCell, CsSelectCell } from './CsTreeTableCell';
+import { CsExpandTable } from './CsExpandTable'
+import { CsTreeCell, CsTreeHeader, CsEditCell, CsIconCell, CsSelectCell } from './CsExpandTableCell';
 
 import makeTreeData from './makeTreeData'
 
-const CsTableContainer = () => {
+const CsExpandTableContainer = () => {
 
 	const [data, setData] = useState(() => makeTreeData(5,5,5));
 
@@ -53,7 +53,7 @@ const CsTableContainer = () => {
 			<Row>
 				<Col md={6}>
 
-					<CsTreeTable data={data} columns={columns} offset={true} setData={setData} />
+					<CsExpandTable data={data} columns={columns} offset={true} setData={setData} />
 
 				</Col>
 				<Col md={6} />
@@ -62,4 +62,4 @@ const CsTableContainer = () => {
 	)
 }
 
-export default CsTableContainer
+export default CsExpandTableContainer

@@ -1,0 +1,63 @@
+
+/* Affiche les lignes paires avec un fond gris */
+
+.cp_tree-table_row:nth-child(odd) {
+  background-color: #F4F6F7
+}
+
+.cp_tree-table_row:nth-child(even) {
+  background-color: white
+}
+
+/* Texte Left-to-Right : aligné à droite et l'ellipsis (...) sera affiché à la fin du texte */
+
+.ecs_tree-table_cell_ltr {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Texte Right-to-Left : aligné à gauche et l'ellipsis (...) sera affiché au début du texte */
+
+.ecs_tree-table_cell_rtl {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  direction: rtl;
+}
+
+.ecs_tree-table_cell_found_current {
+  background-color: #D7BDE2;
+}
+
+.ecs_tree-table_cell_found {
+  background-color: #EBDEF0;
+}
+
+.ecs_tree-table_selected-row {
+  background-color: #A9CCE3;
+}
+
+.ecs-tooltip {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  background: #34495E;
+  font-size: 1rem;
+  border-radius: 5px;
+  max-width: 300px;
+  justify-content: start;
+  color: #FFF;
+  padding: 0.5em;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+ from {
+   opacity: 0;
+ }
+ to {
+   opacity: 1;
+ }
+}

@@ -1,143 +1,120 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Col, Table, FormGroup, ButtonGroup, Button, Input, Pagination, PaginationItem, PaginationLink, UncontrolledTooltip } from 'reactstrap';
+import { TreeTable, TreeState } from 'cp-react-tree-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSync } from '@fortawesome/free-solid-svg-icons'
-import { useTable, usePagination, useGlobalFilter, useAsyncDebounce, useExpanded} from 'react-table';
+import { faExpand, faCompress, faSearch, faSync } from '@fortawesome/free-solid-svg-icons'
 
 
-export const CsTreeTable = ({ data = [], columns = [], offset = false, setData }) => {
+
+import '../tree-table.css';
+import '../tree-table-ecs.css';
+
+export const CsTreeTable = ({ height, data = [], columns = [], replace = false, offset = false, save = undefined }) => {
+
+	const [value, setValue] = useState();
+
+	const [searchText, setSearchText] = useState(''); // Texte recherché.
+	const [searchOccurence, setSearchOccurence] = useState(); // Nombre d'occurences du texte recherché.
+	const [searchPositions, setSearchPositions] = useState([]); // Liste des $state.top des rows dans lesquelles le texte est trouvé.
+	const [searchPosition, setSearchPosition] = useState(); // Position courante consultée dans searchPositions.
+
+	const [searchIndex, setSearchIndex] = useState();
 
 
-	const [replaceText, setReplaceText] = useState();
+
+	const [replaceText, setReplaceText] = useState('');
+
 	const [offsetValue, setOffsetValue] = useState();
 
-	//const skipPageResetRef = useRef()
+	const [warningPositions, setWarningPositions] = useState([]);
+
+	const [message, setMessage] = useState();
+	const [spinner, setSpinner] = useState(false);
+
+	const ref = useRef(null);
+
+	useEffect(() => {
+
+		initializeOnClickOnTableRows();
+
+	});
+
+	useEffect(() => {
+
+		console.log(TreeState.create(data));
+
+
+		setValue(TreeState.create(data));
 
 
 
 
-	const onUpdate = (rowIndex, columnId, value) => {
 
-		console.log(rowIndex + ' - ' + columnId + ' = ' + value);
 
-		// When data gets updated with this function, set a flag
-   // to disable all of the auto resetting
-   //skipPageResetRef.current = true;
 
-		setData(old =>
-			old.map((row, index) => {
-				if (index === rowIndex) {
-					return {
-						...old[rowIndex],
-						[columnId]: value,
-					}
-				}
-				return row
-			})
-		);
 
+
+
+
+
+	}, [data]);
+
+	const initializeOnClickOnTableRows = () => {
+		const treeTableRows = document.getElementsByClassName('cp_tree-table_row');
+		for (const treeTableRow of treeTableRows) {
+			treeTableRow.onclick = (e) => { onClickOnTableRow(e) };
+		}
 	}
 
-	/*useEffect(() => {
-   // After the table has updated, always remove the flag
-   skipPageResetRef.current = false;
- })*/
-
-
-	const onReplace = () => {
-
-
-		setData(old =>
-			old.map((row, index) => {
-					return {
-						...row,
-						col1: row.col1.replace(globalFilter, replaceText)
-					}
-				})
-		);
-
-
-
-
-
-	}
-
-
-
-	const {
-		getTableProps,
-		getTableBodyProps,
-		headerGroups,
-		//rows,
-		page,
-		prepareRow,
-
-		setGlobalFilter,
-
-
-		canPreviousPage,
-    canNextPage,
-		pageCount,
-
-
-		gotoPage,
-		nextPage,
-		previousPage,
-		setPageSize,
-		state: { expanded, globalFilter, pageIndex, pageSize },
-
-
-
-
-	} = useTable(
-		{
-			columns,
-			data,
-
-			//autoResetExpanded: !skipPageResetRef.current,
-
-			initialState: {
-				pageIndex: 0,
-			 	pageSize: 10
-			},
-
-			onUpdate,
-
-
-		},
-
-		useGlobalFilter,
-		useExpanded,
-		usePagination,
-
-
-
-	);
-
-	const onSelect = (e) => {
-
-		const selectedRows = document.getElementsByClassName('selected-row');
-
+	const onClickOnTableRow = (e) => {
+		const selectedRows = document.getElementsByClassName('ecs_tree-table_selected-row');
 		for (const selectedRow of selectedRows) {
-			selectedRow.classList.remove('selected-row');
+			selectedRow.classList.remove('ecs_tree-table_selected-row');
+		}
+		e.currentTarget.className = "ecs_tree-table_selected-row";
+	}
+
+	const searchIndexOfTextInFieldsOfTreeState = (text) => {
+		return value.data.filter(d => {
+			return columns.filter(c => c.searchable).map(c => c.name).some(f => d.data[f] && d.data[f].includes(text)); // Filtre les datas dont l'un des champs de recherche contient le texte à trouver.
+		}).map(d => d.$state.top);
+	}
+
+
+
+
+	const onExpand = () => {
+		if (value && value.hasData) {
+			setValue(TreeState.expandAll(value));
+		}
+	}
+
+	const onCollapse = () => {
+		if (value && value.hasData) {
+			setValue(TreeState.collapseAll(value));
+		}
+	}
+
+	const onSearch = () => {
+
+		if (!searchText) {
+			setSearchOccurence(undefined);
+			setSearchPositions([]);
+
+		} else if (value && value.hasData) {
+
+			console.log(searchIndexOfTextInFieldsOfTreeState(searchText));
+
+
+
+
+
 		}
 
 
 
-		e.currentTarget.className = "selected-row";
 
-
-
-	}
-
-	const onSave = () => {
-
-		//console.log(data);
-
-		//console.log(makeData())
-
-		console.log(data);
 
 
 	}
@@ -145,99 +122,61 @@ export const CsTreeTable = ({ data = [], columns = [], offset = false, setData }
 	const onOffset = () => {
 
 
+	}
+
+	const onReplace = () => {
+
 
 	}
 
-	// Retourne les numéros des pages à afficher dans la pagination.
+	const onSave = () => {
 
-	const getPages = () => {
-
-		let pages = [];
-
-		// Retourne les deux voisins à droite et à gauche de pageIndex.
-		// Ex: pageIndex=12 => [10, 11, 12, 13, 14].
-		for (let i=pageIndex-2; i<=pageIndex+2; i++) {
-			pages.push(i);
-		}
-
-		// Retire les index < 0 éventuellent créés par le fenêtrage précédent.
-		if (pages.includes(-1)) {
-			pages = pages.filter(p => p >= 0);
-		}
-
-		// Retire les index > pageCount éventuellent créés par le fenêtrage précédent.
-		if (pages.includes(pageCount)) {
-			pages = pages.filter(p => p < pageCount);
-		}
-
-		// Ajoute éventuellement les boutons [1] et [...] en début de pagination.
-		if (pageIndex > 2) {
-			pages.unshift(-1);
-			pages.unshift(0);
-		}
-
-		// Ajoute éventuellement les boutons [...] et [pageCount] en fin de pagination.
-		if (pageIndex < pageCount-3) {
-			pages.push(-1);
-			pages.push(pageCount-1);
-		}
-
-		return pages;
-	}
-
-
-	function GlobalFilter({
-		globalFilter,
-		setGlobalFilter,
-	}) {
-
-		const [value, setValue] = useState(globalFilter);
-
-		const onChange = useAsyncDebounce(value => {
-			setGlobalFilter(value || undefined);
-		}, 1000)
-
-		return (
-			<Input
-				style={{marginRight: '10px'}}
-				placeholder={'Search...'}
-				value={value || ''}
-				onChange={e => {
-					setValue(e.target.value);
-					onChange(e.target.value);
-
-        }} />
-
-
-		)
+		save(value);
 
 	}
-
-
-
-
-
 
 
 	return (
+
 		<React.Fragment>
+
 			<FormGroup style={{marginTop: '10px'}} row>
 				<Col md={6}>
 					<ButtonGroup>
-						<GlobalFilter globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
+						<Button onClick={onExpand} color="light"><FontAwesomeIcon icon={faExpand} /></Button>
+						<Button onClick={onCollapse} color="light"><FontAwesomeIcon icon={faCompress} /></Button>
 						<Input
-							style={{marginRight: '10px'}}
-							placeholder={'Replace...'}
-							value={replaceText || ''}
+							bsSize={'sm'}
+							style={{marginRight: '10px', marginLeft: '10px'}}
+							placeholder={'Search...'}
+							value={searchText || ''}
 							onChange={e => {
-								setReplaceText(e.target.value);
+								setSearchText(e.target.value);
+								setSearchOccurence(undefined);
+								setSearchPositions([]);
 
 
-			        }} />
-						<Button color="light" onClick={onReplace}><FontAwesomeIcon icon={faSync} /></Button>
+							}} />
+						<Button color="light" style={{marginRight: '10px'}} onClick={onSearch}><FontAwesomeIcon icon={faSearch} /></Button>
+						{replace &&
+							<React.Fragment>
+								<Input
+									bsSize={'sm'}
+									style={{marginRight: '10px'}}
+									placeholder={'Replace...'}
+									value={replaceText || ''}
+									onChange={e => {
+										setReplaceText(e.target.value);
+
+
+									}} />
+								<Button color="light" style={{marginRight: '10px'}} onClick={onReplace}><FontAwesomeIcon icon={faSync} /></Button>
+							</React.Fragment>
+						}
 						{offset &&
 							<React.Fragment>
 								<Input
+									bsSize={'sm'}
 									type={'number'}
 									style={{marginRight: '10px'}}
 									placeholder={'Offset...'}
@@ -246,104 +185,50 @@ export const CsTreeTable = ({ data = [], columns = [], offset = false, setData }
 										setOffsetValue(e.target.value);
 
 
-					        }} />
+									}} />
 								<Button color="light" onClick={onOffset}><FontAwesomeIcon icon={faSync} /></Button>
 							</React.Fragment>
-
-
-
 						}
-
 					</ButtonGroup>
-
 				</Col>
 				<Col md={6} />
 			</FormGroup>
 			<FormGroup>
-				<Table striped {...getTableProps()}>
-					<thead>
-						{headerGroups.map(headerGroup => (
-							<tr {...headerGroup.getHeaderGroupProps()}>
-								{headerGroup.headers.map(column => (
-									<th className={'col-w-' + column.width} {...column.getHeaderProps()}>
-										{column.render('Header')}
-									</th>
-								))}
-							</tr>
+				<TreeTable
+					height={height}
+					value={value || {}}
+					onChange={setValue}
+					ref={ref}>
+					{columns.map(c => (
+						<TreeTable.Column
+							basis={c.basis}
+							renderCell={c.renderCell}
+							renderHeaderCell={() => c.name} />
+
+
 						))}
-					</thead>
-					<tbody {...getTableBodyProps()}>
-						{page.map(row => {
-							prepareRow(row)
-							return (
-								<tr {...row.getRowProps()} onClick={onSelect}>
-									{row.cells.map(cell => {
-										//console.log(cell.render('Cell'));
-										//const cellId = '_row_' + cell.row.id + '_' + cell.column.id;
-										const cellId = '' + cell.row.id + '_' + cell.column.id;
-										return (
-											<React.Fragment>
-												<td /*id={cellId}*/ {...cell.getCellProps()}>
-													{cell.render('Cell')}
-												</td>
-
-
-											</React.Fragment>
-										)
-									})}
-								</tr>
-							)
-						})}
-					</tbody>
-				</Table>
+				</TreeTable>
+				<p className={'ecs-tooltip'} id={'tooltip'} />
 			</FormGroup>
-			<FormGroup row>
+			<FormGroup>
 				<Col md={6}>
+				{save &&
 					<ButtonGroup>
-						<Button color='primary' onClick={onSave}>{'Enregistrer'}</Button>
-
+						<Button color="primary" onClick={onSave}>{'Enregistrer'}</Button>
 					</ButtonGroup>
 
 
+
+
+				}
 				</Col>
-				<Col md={6}>
-					<Pagination>
-	  				<PaginationItem disabled={!canPreviousPage} onClick={() => gotoPage(0)}>
-	    				<PaginationLink first />
-						</PaginationItem>
-						<PaginationItem disabled={!canPreviousPage} onClick={() => previousPage()}>
-							<PaginationLink previous />
-						</PaginationItem>
-						{getPages().map(page => (
-							page===-1 ?
-							<PaginationItem active={false}>
-								<PaginationLink>{'...'}</PaginationLink>
-						  </PaginationItem>
-							:
-							<PaginationItem active={page===pageIndex ? true : false} onClick={() => gotoPage(page)}>
-								<PaginationLink>{page+1}</PaginationLink>
-						  </PaginationItem>
-						))}
-						<PaginationItem disabled={!canNextPage} onClick={() => nextPage()}>
-							<PaginationLink next />
-						</PaginationItem>
-						<PaginationItem disabled={!canNextPage} onClick={() => gotoPage(pageCount-1)}>
-							<PaginationLink last />
-						</PaginationItem>
-					</Pagination>
-				</Col>
+				<Col md={6} />
 			</FormGroup>
 		</React.Fragment>
+
+
 	)
 
 }
-
-/*
-{cell.value &&
-	<UncontrolledTooltip placement='top' target={cellId}>
-		{cell.value}
-	</UncontrolledTooltip>
-}
-*/
 
 export default CsTreeTable
