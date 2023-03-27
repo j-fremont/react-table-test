@@ -35,12 +35,16 @@
   background-color: #EBDEF0;
 }
 
+.ecs_tree-table_cell_duplicate {
+  background-color: #F5B7B1;
+}
+
 .ecs_tree-table_selected-row {
   background-color: #A9CCE3;
 }
 
 .ecs-tooltip {
-  display: flex;
+  display: none;
   position: absolute;
   overflow: hidden;
   background: #34495E;
@@ -51,6 +55,7 @@
   color: #FFF;
   padding: 0.5em;
   animation: fadeIn 0.5s;
+
 }
 
 @keyframes fadeIn {

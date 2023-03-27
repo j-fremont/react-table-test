@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, createRef } from 'react';
 import { Col, Table, FormGroup, ButtonGroup, Button, Input, Pagination, PaginationItem, PaginationLink, UncontrolledTooltip } from 'reactstrap';
 import { TreeTable, TreeState } from 'cp-react-tree-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,14 +12,16 @@ import '../tree-table-ecs.css';
 
 export const CsTreeTable = ({ height, data = [], columns = [], replace = false, offset = false, save = undefined }) => {
 
+	const ref = createRef();
+
 	const [value, setValue] = useState();
 
 	const [searchText, setSearchText] = useState(''); // Texte recherché.
-	const [searchOccurence, setSearchOccurence] = useState(); // Nombre d'occurences du texte recherché.
-	const [searchPositions, setSearchPositions] = useState([]); // Liste des $state.top des rows dans lesquelles le texte est trouvé.
+	const [searchPositions, setSearchPositions] = useState([]); // Liste des { top: $state.top, column } des rows dans lesquelles le texte est trouvé.
 	const [searchPosition, setSearchPosition] = useState(); // Position courante consultée dans searchPositions.
-
 	const [searchIndex, setSearchIndex] = useState();
+
+	const [duplicatePositions, setDuplicatePositions] = useState([]); // Liste des { top: $state.top, column } des rows dans lesquelles le texte est dupliqué.
 
 
 
@@ -27,14 +29,17 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 
 	const [offsetValue, setOffsetValue] = useState();
 
-	const [warningPositions, setWarningPositions] = useState([]);
 
 	const [message, setMessage] = useState();
 	const [spinner, setSpinner] = useState(false);
 
-	const ref = useRef(null);
+
 
 	useEffect(() => {
+
+		//setValue(TreeState.createEmpty());
+
+
 
 		initializeOnClickOnTableRows();
 
@@ -42,7 +47,7 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 
 	useEffect(() => {
 
-		console.log(TreeState.create(data));
+		//console.log(TreeState.create(data));
 
 
 		setValue(TreeState.create(data));
@@ -75,11 +80,77 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 		e.currentTarget.className = "ecs_tree-table_selected-row";
 	}
 
-	const searchIndexOfTextInFieldsOfTreeState = (text) => {
-		return value.data.filter(d => {
-			return columns.filter(c => c.searchable).map(c => c.name).some(f => d.data[f] && d.data[f].includes(text)); // Filtre les datas dont l'un des champs de recherche contient le texte à trouver.
-		}).map(d => d.$state.top);
+	const searchTextInFieldsOfTree = (text) => {
+		return value.data.map(d => ({
+			top: d.$state.top,
+			columnsWithText : columns.filter(c => c.searchable).map(c => c.name).filter(f => d.data[f] && d.data[f].includes(text))
+		})).reduce((acc, e) => {
+			e.columnsWithText.forEach(c => {
+				acc.push({
+					top: e.top,
+					column: c
+				});
+			});
+			return acc;
+		}, []);
 	}
+
+	// Retourne le nombre d'occurences dans une array, sous forme d'objet.
+	// {
+	//  occurence_1: nombre,
+	//  occurence_2: nombre
+	// }
+	//
+	const occurences = (arr) => {
+		return arr.reduce((acc, val) => {
+			if (acc[val]) {
+				acc[val]++;
+			} else {
+				acc[val]=1;
+			}
+			return acc;
+		}, {});
+	}
+
+	// Retourne les occurences multiples dans une array, sous forme d'array.
+	//
+	const multipleOccurences = (arr) => {
+		const occ = occurences(arr);
+		return Object.keys(occ).filter(k => occ[k] > 1);
+	}
+
+	const searchDuplicateTextInFieldsOfTree = () => {
+
+		return columns.filter(c => c.duplicable===false).map(c => c.name).flatMap(n => {
+
+			const duplicates = multipleOccurences(value.data.filter(d => d.data.name).map(d => d.data[n]));
+
+			if (duplicates.length) {
+
+				return value.data.reduce((acc, d) => {
+					if (duplicates.includes(d.data[n])) {
+						acc.push({
+							top: d.$state.top,
+							column: n
+						});
+					}
+					return acc;
+				}, []);
+
+			} else return [];
+
+		});
+
+	}
+
+	const scrollTo = (top) => {
+		if (ref.current!=null) {
+			ref.current.scrollTo(top);
+		}
+	}
+
+
+
 
 
 
@@ -99,12 +170,33 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 	const onSearch = () => {
 
 		if (!searchText) {
-			setSearchOccurence(undefined);
+			//setSearchOccurence(undefined);
 			setSearchPositions([]);
 
 		} else if (value && value.hasData) {
 
-			console.log(searchIndexOfTextInFieldsOfTreeState(searchText));
+			if (searchPositions.length) {
+
+				const position = searchPositions.shift();
+				setSearchPosition(position);
+				scrollTo(position.top);
+
+
+
+
+
+
+
+			} else {
+
+				const newSearchPositions = searchTextInFieldsOfTree(searchText);
+				setSearchPositions(newSearchPositions);
+
+
+			}
+
+
+
 
 
 
@@ -133,6 +225,9 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 
 		save(value);
 
+		const newDuplicatePositions = searchDuplicateTextInFieldsOfTree();
+		setDuplicatePositions(newDuplicatePositions);
+
 	}
 
 
@@ -152,7 +247,7 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 							value={searchText || ''}
 							onChange={e => {
 								setSearchText(e.target.value);
-								setSearchOccurence(undefined);
+								//setSearchOccurence(undefined);
 								setSearchPositions([]);
 
 
@@ -198,12 +293,26 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 					height={height}
 					value={value || {}}
 					onChange={setValue}
+					onScroll={(n) => {
+						//console.log(n);
+
+						scrollTo(n);
+
+
+
+					}}
 					ref={ref}>
 					{columns.map(c => (
 						<TreeTable.Column
 							basis={c.basis}
-							renderCell={c.renderCell}
-							renderHeaderCell={() => c.name} />
+							renderCell={row => c.renderCell(row, {
+								searchPosition,
+								searchPositions,
+								duplicatePositions,
+
+
+							})}
+							renderHeaderCell={() => c.label} />
 
 
 						))}

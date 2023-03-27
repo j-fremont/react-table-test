@@ -5,7 +5,9 @@ import { CsTreeTable } from './CsTreeTable'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faSync, faReply, faEraser, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 
-import { renderTextCell, renderInputCell, renderSelectCell, renderIconCell } from './CsTreeTableCell';
+import { renderTextCell, renderTreeTextCell, renderInputCell, renderSelectCell, renderIconCell } from './CsTreeTableCell';
+
+import makeData from './makeTreeDataFromData'
 
 const CsTreeTableContainer = () => {
 
@@ -17,7 +19,7 @@ const CsTreeTableContainer = () => {
 		name: 'option 3'
 	}]
 
-	const data = useMemo(() => [
+	/*const data = useMemo(() => [
 		{
 			data: {
 				id: '_1',
@@ -53,7 +55,10 @@ const CsTreeTableContainer = () => {
 
 		},
 
-	], []);
+	], */
+
+	const data = makeData();
+
 
 
 	const columns = useMemo(() => [
@@ -67,25 +72,42 @@ const CsTreeTableContainer = () => {
 
 
 		},{
-			name: 'col1',
+			label: 'Nom',
+			name: 'name',
 			basis: '100px',
-			renderCell: row => {
-				return renderTextCell(row, 'col1')
+			renderCell: (row, tabledata) => {
+				return renderTreeTextCell(row, 'name', tabledata)
+			},
+			searchable: true,
+			duplicable: false,
+
+
+
+		},{
+			label: 'Préfixe',
+			name: 'prefix',
+			basis: '100px',
+			renderCell: (row, tabledata) => {
+				return renderInputCell(row, 'prefix', tabledata)
 			},
 			searchable: true,
 
 
 
 		},{
-			name: 'col2',
+			label: 'Instance',
+			name: 'lnInst',
 			basis: '100px',
-			renderCell: row => {
-				return renderInputCell(row, 'col2')
+			renderCell: (row, tabledata) => {
+				return renderInputCell(row, 'lnInst', tabledata)
 			},
+			searchable: true,
 
 
 
-		},{
+
+		},/*{
+			label: 'Colonne 3',
 			name: 'col3',
 			basis: '100px',
 			renderCell: row => {
@@ -94,13 +116,16 @@ const CsTreeTableContainer = () => {
 
 
 
-		},{
-			name: 'col4',
+		},*/{
+			label: 'Note UML',
+			name: 'test',
 			basis: '100px',
-			renderCell: row => {
-				return renderTextCell(row, 'col4')
+			renderCell: (row, tabledata) => {
+				return renderTextCell(row, 'test', tabledata)
 			},
 			searchable: true,
+			duplicable: false,
+			
 
 
 
@@ -122,7 +147,7 @@ const CsTreeTableContainer = () => {
 			<Row>
 				<Col md={6}>
 
-					<CsTreeTable height={600} data={data} columns={columns} replace={true} offset={true} save={saveTable} />
+					<CsTreeTable height={310} data={data} columns={columns} replace={true} offset={true} save={saveTable} />
 
 				</Col>
 				<Col md={6} />
