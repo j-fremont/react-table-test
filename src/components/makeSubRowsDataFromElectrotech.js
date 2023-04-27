@@ -1,5 +1,5 @@
 
-const data = require('./data_1.json');
+const data = require('./electrotech_1.json');
 
 export default function makeData() {
 
@@ -17,31 +17,22 @@ export default function makeData() {
       lnInst: getProperty(data, 'lnInst'),
 
     }
-
-
   }
 
   const subRows = (data) => {
-
-
 
     return data.isContained.map(c => ({
       ...getDetails(c),
       subRows: subRows(c)
 
-
     }));
 
   }
-
-
 
   return [{
     ...getDetails(data),
     subRows: subRows(data)
 
-
   }]
-
 
 }

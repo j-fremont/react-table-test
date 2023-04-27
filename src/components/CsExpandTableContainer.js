@@ -4,56 +4,52 @@ import { Container, Row, Col } from 'reactstrap';
 import { CsExpandTable } from './CsExpandTable'
 import { CsTreeCell, CsTreeHeader, CsEditCell, CsIconCell, CsSelectCell } from './CsExpandTableCell';
 
-import makeTreeData from './makeTreeData'
+import makeData from './makeSubRowsDataFromElectrotech'
 
 const CsExpandTableContainer = () => {
 
-	const [data, setData] = useState(() => makeTreeData(5,5,5));
-
-	const options = [{key:1, value:'Option un'},{key:2, value:'Option deux'},{key:3, value:'Option trois'}];
+	const [data, setData] = useState(() => makeData());
 
 	const columns = useMemo(() => [
 		{
-			id: 'expander',
-			Header: CsTreeHeader,
-			accessor: 'col3', // accessor is the "key" in the data
-			Cell: CsTreeCell,
-			width: 50,
-
-
-		},
-		{
-			Header: '',
-			accessor: 'col0', // accessor is the "key" in the data
-			Cell: CsIconCell,
-			width: 5,
-
-
-
-		},{
-			Header: 'Column 1',
-			accessor: 'col1', // accessor is the "key" in the data
+			Header: 'Prefixe',
+			accessor: 'prefix', // accessor is the "key" in the data
 			Cell: CsEditCell,
-			width: 25,
-
+			width: 15,
 
 		},{
-			Header: 'Column 2',
-			accessor: 'col2',
-			Cell: (props) => CsSelectCell({...props, options}),
+			Header: 'Instance',
+			accessor: 'lnInst', // accessor is the "key" in the data
+			Cell: CsEditCell,
+			width: 15,
+
+		},{
+			Header: 'Nouveau nom',
+			accessor: 'name', // accessor is the "key" in the data
+			Cell: CsEditCell,
 			width: 20,
 
+		},{
+			id: 'expander',
+			Header: CsTreeHeader,
+			accessor: 'name', // accessor is the "key" in the data
+			Cell: CsTreeCell,
+			width: 25,
+
+		},{
+			Header: 'Note UML',
+			accessor: 'description', // accessor is the "key" in the data
+			width: 25,
 
 		},
 	], []);
-
 
 	return (
 		<Container fluid={true}>
 			<Row>
 				<Col md={6}>
 
-					<CsExpandTable data={data} columns={columns} offset={true} setData={setData} />
+					<CsExpandTable data={data} columns={columns} setData={setData} />
 
 				</Col>
 				<Col md={6} />

@@ -1,22 +1,16 @@
 
 import React, { useState, useMemo } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { CsTreeTable } from './CsTreeTable'
+import { CsTable } from './CsTable'
 //import CsTreeTable2 from './CsTreeTable2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faSync, faReply, faEraser, faClipboardList } from '@fortawesome/free-solid-svg-icons'
 
 import { renderTextCell, renderTreeTextCell, renderInputCell, renderSelectCell, renderIconCell, renderCheckboxCell } from './CsTreeTableCell';
 
-import makeData from './makeChildrenDataFromElectrotech'
+import makeData from './makeTreeDataFromIed'
 
 const CsTreeTableContainer = () => {
-
-	const [data, setData] = useState(() => makeData());
-
-
-
-
 
 	const options = [{
 		name: 'option 1'
@@ -153,6 +147,9 @@ const CsTreeTableContainer = () => {
 	const saveTable = (data) => {
 
 
+		console.log(data);
+
+
 	}
 
 
@@ -161,7 +158,7 @@ const CsTreeTableContainer = () => {
 			<Row>
 				<Col md={6}>
 
-					<CsTreeTable height={310} data={data} columns={columns} replace={true} offset={true} save={saveTable} />
+					<CsTable height={310} data={data} columns={columns} replace={true} offset={true} save={saveTable} />
 
 				</Col>
 				<Col md={6} />

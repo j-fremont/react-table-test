@@ -1,0 +1,120 @@
+
+.cs-table {
+  font-size: 14px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,  'Helvetica Neue', sans-serif;
+  color: #040402;
+  background: #fff;
+  border: 1px solid rgba(55, 53, 47, 0.2);
+
+
+}
+
+.cs-table-header {
+  height: 26px;
+  color: rgba(55, 53, 47, 0.6);
+  background: rgba(242, 241, 238, 0.6);
+  border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+  display: flex;
+  flex-grow: 1;
+
+
+}
+
+.cs-table-header-cell {
+
+}
+
+.cs-table .cs-table-cell,
+.cs-table .cs-table-header-cell {
+  padding: 0 4px;
+  position: relative;
+
+
+}
+
+
+.cs-table-viewport {
+  overflow: auto;
+
+
+
+}
+
+.cs-table-rows {
+
+
+
+}
+
+.cs-table-mover {
+  overflow: visible;
+
+
+
+}
+
+.cs-table-row {
+  height: 26px;
+  display: flex;
+  flex-grow: 1;
+
+
+
+}
+
+.cs-table-row-selected {
+  height: 26px;
+  display: flex;
+  flex-grow: 1;
+  background-color: #B2BABB;
+}
+
+
+
+.cs-table-row:nth-child(odd) {
+  background-color: #F4F6F7
+}
+
+.cs-table-row:nth-child(even) {
+  background-color: white
+}
+
+.cs-table-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+
+}
+
+.cs-table-cell-search {
+  background-color: #D6EAF8;
+}
+
+.cs-table-cell-search-current {
+  background-color: #AED6F1;
+}
+
+.cs-resizer {
+  width: 5px;
+  height: 16px;
+  background: #B2BABB;
+  cursor: col-resize;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.cs-tooltip {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  background: #34495E;
+  font-size: 1rem;
+  border-radius: 5px;
+  max-width: 300px;
+  justify-content: start;
+  color: #FFF;
+  padding: 0.5em;
+  animation: fadeIn 0.5s;
+}

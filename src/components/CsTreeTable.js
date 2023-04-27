@@ -4,7 +4,7 @@ import { Col, Table, FormGroup, ButtonGroup, Button, Input, Pagination, Paginati
 import { TreeTable, TreeState } from 'cp-react-tree-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand, faCompress, faSearch, faSync } from '@fortawesome/free-solid-svg-icons'
-
+import { isString } from '../helper'
 
 
 import '../tree-table.css';
@@ -72,18 +72,23 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 		}
 	}
 
-	const onClickOnTableRow = (e) => {
+	const unclickAllTableRows = () => {
 		const selectedRows = document.getElementsByClassName('ecs_tree-table_selected-row');
 		for (const selectedRow of selectedRows) {
 			selectedRow.classList.remove('ecs_tree-table_selected-row');
+			selectedRow.className = "cp_tree-table_row";
 		}
+	}
+
+	const onClickOnTableRow = (e) => {
+		unclickAllTableRows();
 		e.currentTarget.className = "ecs_tree-table_selected-row";
 	}
 
 	const searchTextInFieldsOfTree = (text) => {
 		return value.data.map(d => ({
 			top: d.$state.top,
-			columnsWithText : columns.filter(c => c.searchable).map(c => c.name).filter(f => d.data[f] && d.data[f].includes(text))
+			columnsWithText : columns.filter(c => c.searchable).map(c => c.name).filter(f => d.data[f] && isString(d.data[f]) && d.data[f].includes(text))
 		})).reduce((acc, e) => {
 			e.columnsWithText.forEach(c => {
 				acc.push({
@@ -147,6 +152,10 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 		if (ref.current!=null) {
 			ref.current.scrollTo(top);
 		}
+
+
+
+
 	}
 
 
@@ -190,6 +199,9 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 			} else {
 
 				const newSearchPositions = searchTextInFieldsOfTree(searchText);
+
+				console.log(newSearchPositions)
+
 				setSearchPositions(newSearchPositions);
 
 
@@ -293,10 +305,8 @@ export const CsTreeTable = ({ height, data = [], columns = [], replace = false, 
 					height={height}
 					value={value || {}}
 					onChange={setValue}
-					onScroll={(n) => {
-						//console.log(n);
-
-						scrollTo(n);
+					onScroll={() => {
+						unclickAllTableRows();
 
 
 

@@ -40,7 +40,23 @@
 }
 
 .ecs_tree-table_selected-row {
-  background-color: #A9CCE3;
+  background-color: #D5D8DC;
+}
+
+.ecs_tree-table_disactivated {
+  color: grey;
+}
+
+.ecs_tree-table_lnode {
+  color: #239B56;
+}
+
+.ecs_tree-table_do {
+  color: #CD6155;
+}
+
+.ecs_tree-table_da {
+  color: #2471A3;
 }
 
 .ecs-tooltip {

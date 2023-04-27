@@ -63,9 +63,7 @@
 
 
 .resizer {
-
-
-  display: inline-block;
+        display: inline-block;
         background: blue;
         width: 10px;
         height: 100%;
@@ -76,7 +74,8 @@
         z-index: 1;
         touch-action:none;
 
-                &.isResizing {
-                  background: red;
-                }
-}
+        &.isResizing {
+          background: red;
+        }
+
+      }
