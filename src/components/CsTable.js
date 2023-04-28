@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Table, FormGroup, FormText, ButtonGroup, Button, Input, Pagination, PaginationItem, PaginationLink, UncontrolledTooltip } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpand, faCompress, faSearch, faSync } from '@fortawesome/free-solid-svg-icons'
+import { faExpand, faCompress, faSearch, faSync, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import '../cs-table.css';
 
@@ -20,14 +20,7 @@ export const CsTable = ({ height, data = [], columns = [], options={}, save, app
 
 	const [offset, setOffset] = useState(0);
 
-
 	useEffect(() => {
-
-
-
-
-
-
 
 		// Ajout des effets pour le resizing des colonnes.
 		document.addEventListener('mousemove', mouseMove);
@@ -35,10 +28,17 @@ export const CsTable = ({ height, data = [], columns = [], options={}, save, app
 		// Initialisation des className pour la sélection d'une ligne.
 		initializeOnClickOnTableRows();
 
+
+	});
+
+
+	useEffect(() => {
+
+
 		setRows(data);
 
 
-	});
+	}, [data]);
 
 
 
@@ -229,11 +229,15 @@ export const CsTable = ({ height, data = [], columns = [], options={}, save, app
 
 			<ButtonGroup style={{ marginTop: '10px', marginBottom: '10px' }} row>
 
+				{options.add &&
+					<Button color="light" style={{ marginRight: '10px' }} onClick={onSearch}><FontAwesomeIcon icon={faPlus} /></Button>
+				}
+
 					{options.search &&
 						<React.Fragment>
 							<Input
 								bsSize={'sm'}
-								style={{ marginRight: '10px', marginLeft: '10px', width: '250px' }}
+								style={{ marginRight: '10px', width: '250px' }}
 								placeholder={'Search...'}
 								value={searchText || ''}
 								onChange={onChangeSearchText} />
@@ -264,10 +268,13 @@ export const CsTable = ({ height, data = [], columns = [], options={}, save, app
 					<div className='cs-table-header'>
 
 							{columns.map(column => (
-								<div className='cs-table-header-cell' field={column.field} style={{ flexBasis: column.basis }}>
-									{column.name}
-									<div className='cs-resizer' onMouseDown={mouseDown} />
-								</div>
+								column.type==='text' ?
+									<div className='cs-table-header-cell' field={column.field} style={{ flexBasis: column.basis }}>
+										{column.name}
+										{column.type==='text' && <div className='cs-resizer' onMouseDown={mouseDown} />}
+									</div>
+									:
+									<div className='cs-table-header-button' />
 							))}
 
 					</div>
@@ -283,9 +290,12 @@ export const CsTable = ({ height, data = [], columns = [], options={}, save, app
 									return (
 										<div className='cs-table-row'>
 											{columns.map(column => (
-												<div className={cellClassName(pos, column)} field={column.field} style={{ flexBasis: column.basis }} onMouseOver={(e) => mouseOver(e, row[column.field])} onMouseOut={mouseOut}>
-													{row[column.field]}
-												</div>
+												column.type==='text' ?
+													<div className={cellClassName(pos, column)} field={column.field} style={{ flexBasis: column.basis }} onMouseOver={(e) => mouseOver(e, row[column.field])} onMouseOut={mouseOut}>
+														{row[column.field]}
+													</div>
+													:
+													<div className='cs-table-cell-button' onClick={column.onClick}><FontAwesomeIcon size="s" icon={column.style} /></div>
 											))}
 										</div>
 									)

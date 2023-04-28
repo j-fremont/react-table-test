@@ -2,22 +2,44 @@
 import React, { useState, useMemo } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { CsTable } from './CsTable'
+import { faSync } from '@fortawesome/free-solid-svg-icons'
+
 
 const CsTableContainer = () => {
 
+	const click = () => {
+
+		console.log('click')
+
+	}
+
 	const columns = [{
-		name: 'Colonne 1',
-		field: 'col1',
-		basis: '1000px',
+		type: 'button',
+		basis: '10px',
+		style: faSync,
+		onClick: click
 
 	},{
+		type: 'text',
+		name: 'Colonne 1',
+		field: 'col1',
+		basis: '1200px',
+
+	},{
+		type: 'button',
+		basis: '10px',
+		style: faSync,
+		onClick: click
+
+	},{
+		type: 'text',
 		name: 'Colonne 2',
 		field: 'col2',
-		basis: '1000px',
+		basis: '1200px',
 
 	}];
 
-	const data = [{
+	const [data, setData] = useState([{
 		col1: 'Lorem ipsum',
 		col2: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
 	},{
@@ -62,9 +84,10 @@ const CsTableContainer = () => {
 	},{
 		col1: 'Exercitation ullamco laboris',
 		col2: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-	}];
+	}]);
 
 	const options = {
+		add: true,
 		search: true,
 		offset: true,
 
@@ -74,6 +97,12 @@ const CsTableContainer = () => {
 	const save = () => {
 
 		console.log('save');
+
+
+		setData(data.map(d => ({
+			...d,
+			col1: 'Coucou'
+		})));
 
 	}
 
