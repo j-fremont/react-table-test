@@ -1,4 +1,9 @@
 
+:root {
+  --cell-text-align: left;
+  --cell-direction: rtl;
+}
+
 .cs-table {
   font-size: 14px;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,  'Helvetica Neue', sans-serif;
@@ -24,6 +29,14 @@
 
 }
 
+.cs-table-header-cell-sorted {
+  padding: 0 4px;
+  position: relative;
+  font-weight: bold;
+
+
+}
+
 .cs-table .cs-table-cell,
 .cs-table .cs-table-header-cell {
   padding: 0 4px;
@@ -33,11 +46,26 @@
 }
 
 .cs-table-cell-button {
+  flex-basis: content;
   padding: 0 6px;
+
+
+
+
+
+}
+
+.cs-table-cell-input {
+  width: 100%;
+  border: 3px solid transparent;
+
+
 }
 
 .cs-table-header-button {
-  padding: 0 12px;
+  flex-basis: content;
+  padding: 0 6px;
+  /*flex-shrink: 0;*/
 }
 
 .cs-table-viewport {
@@ -60,8 +88,10 @@
 
 }
 
+/* Ou avec height: calc(var(--nb-line) * 26px); */
+
 .cs-table-row {
-  height: 26px;
+  height: var(--row-height);
   display: flex;
   flex-grow: 1;
 
@@ -69,8 +99,10 @@
 
 }
 
+/* Ou avec height: calc(var(--nb-line) * 26px); */
+
 .cs-table-row-selected {
-  height: 26px;
+  height: var(--row-height);
   display: flex;
   flex-grow: 1;
   background-color: #B2BABB;
@@ -90,9 +122,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
+  text-align: var(--cell-text-align);
+  direction: var(--cell-direction);
 
 }
+
+.cs-table-cell-rtl {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  direction: rtl;
+
+}
+
 
 .cs-table-cell-search {
   background-color: #D6EAF8;
